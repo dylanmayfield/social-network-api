@@ -22,6 +22,7 @@
     "mongoose": "^5.13.2",
     "nodemon": "^2.0.12",
     "mongodb": "6.3.0",
-    "api-routes": "^0.1.0"
+    "api-routes": "^0.1.0",
+    "moment": "^2.29.1"
   }
 }
