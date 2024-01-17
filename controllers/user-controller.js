@@ -1,4 +1,4 @@
-const { user } = require('../models');
+const { user , thought } = require('../models');
 
 const userController = {
 
@@ -44,13 +44,13 @@ const userController = {
         });
     },
 
-    createUser({body}, res) {
+    createUsers({body}, res) {
         user.create(body)
         .then(dbUser => res.json(dbUser))
         .catch(err => res.json(err));
     },
 
-    updateUser({params, body}, res) {
+    updateUsers({params, body}, res) {
         user.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
         .then(dbUser => {
             if(!dbUser) {
@@ -63,7 +63,7 @@ const userController = {
 
     },
 
-    deleteUser({params}, res) {
+    deleteUsers({params}, res) {
         user.findOneAndDelete({_id: params.id})
         .then(dbUser => {
             if(!dbUser) {
@@ -75,7 +75,7 @@ const userController = {
         .catch(err => res.json(err));
     },
 
-    addFriend({params}, res) {
+    createFriend({params}, res) {
         user.findOneAndUpdate({_id: params.userId}, {$push: {friends: params.friendId}}, {new: true})
         .then(dbUser => {
             if(!dbUser) {
