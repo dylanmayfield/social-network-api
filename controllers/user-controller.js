@@ -1,5 +1,6 @@
 const { user , thought } = require('../models');
 
+
 const userController = {
 
     getAllUsers(req, res) {
@@ -20,7 +21,7 @@ const userController = {
         });
     },
 
-    getUserById({params}, res) {
+    getUsersById({params}, res) {
         user.findOne({_id: params.id})
         .populate({
             path: 'thoughts',
@@ -100,4 +101,6 @@ const userController = {
     },
 
 };
+
+module.exports = userController;
 
